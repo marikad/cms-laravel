@@ -4,22 +4,29 @@
 
 <h1>Users</h1>
 
-<table style="width:100%">
+<table class="table">
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
+    <th>Id</th>
+    <th>Name</th> 
+    <th>Email</th>
+    <th>Role</th>
+    <th>Status</th>
+    <th>Created</th>
+    <th>Updated</th>
   </tr>
   <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
+  @if($users)
+  @foreach($users as $user)
+    <td>{{$user->id}}</td>
+    <td>{{ucwords(trans($user->name))}}</td> 
+    <td>{{$user->email}}</td>
+    <td>{{$user->role['name']}}</td>
+    <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
+    <td>{{$user->created_at->diffForHumans()}}</td>
+    <td>{{$user->updated_at->diffForHumans()}}</td>
   </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-  </tr>
+  @endforeach
+  @endif
 </table>
 
 @endsection
