@@ -8,6 +8,7 @@
   <tr>
     {{-- <th>Image</th> --}}
     <th>Id</th>
+    <th>Photo</th>
     <th>Name</th> 
     <th>Email</th>
     <th>Role</th>
@@ -18,8 +19,8 @@
   <tr>
   @if($users)
   @foreach($users as $user)
-  {{-- <td><img src="{{$user->photo}}" alt=""></td> --}}
     <td>{{$user->id}}</td>
+    <td><img height="50" src="{{$user->photo ? $user->photo->file : 'https://placehold.it/400x400'}}" alt=""></td>
     <td>{{ucwords(trans($user->name))}}</td> 
     <td>{{$user->email}}</td>
     <td>{{$user->role['name']}}</td>
