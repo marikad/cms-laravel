@@ -6,6 +6,7 @@
 
 <table class="table">
   <tr>
+    {{-- <th>Image</th> --}}
     <th>Id</th>
     <th>Name</th> 
     <th>Email</th>
@@ -17,6 +18,7 @@
   <tr>
   @if($users)
   @foreach($users as $user)
+  {{-- <td><img src="{{$user->photo}}" alt=""></td> --}}
     <td>{{$user->id}}</td>
     <td>{{ucwords(trans($user->name))}}</td> 
     <td>{{$user->email}}</td>
