@@ -6,7 +6,6 @@
 
 <table class="table">
   <tr>
-    {{-- <th>Image</th> --}}
     <th>Id</th>
     <th>Photo</th>
     <th>Name</th> 
@@ -21,7 +20,7 @@
   @foreach($users as $user)
     <td>{{$user->id}}</td>
     <td><img height="50" src="{{$user->photo ? $user->photo->file : 'https://placehold.it/400x400'}}" alt=""></td>
-    <td>{{ucwords(trans($user->name))}}</td> 
+    <td><a href="{{ route('users.edit', $user->id) }}">{{ucwords(trans($user->name))}}</a></td> 
     <td>{{$user->email}}</td>
     <td>{{$user->role['name']}}</td>
     <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
