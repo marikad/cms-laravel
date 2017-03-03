@@ -11,6 +11,8 @@
 |
 */
 
+// use \App\Http\Middleware\Admin;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,4 +26,10 @@ Route::get('admin', function(){
 	return view('admin.index');
 });
 
-Route::resource('admin/users', 'AdminUsersController');
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function() {
+
+	Route::resource('users', 'AdminUsersController');
+	Route::resource('posts', 'AdminPostsController');
+});
+
+
