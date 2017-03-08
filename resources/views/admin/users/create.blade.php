@@ -15,7 +15,7 @@
 </div>
 <div class="form-group">
 	{!! Form::label('role_id', 'Role:') !!}
-	{!! Form::select('role_id', $roles, null, ['placeholder'=> 'Choose a role', 'class'=>'form-control']) !!}
+	{!! Form::select('role_id', ['placeholder'=> 'Choose a role'] + $roles, null, ['class'=>'form-control']) !!}
 </div>
 <div class="form-group">
 	{!! Form::label('photo_id', 'Image:') !!}
@@ -34,7 +34,6 @@
 </div>
 
 {!! Form::close() !!}
-
 
 @include('includes.form-error')
 
