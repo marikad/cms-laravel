@@ -60,6 +60,15 @@ class AdminPostsController extends Controller
         return redirect('admin/posts');
     }
 
+    public function post($id) 
+    {
+        $post = Post::findOrFail($id);
+
+        $comments = $post->comments()->whereIsActive($id)->get();
+
+        return view('post', compact('post', 'comments'));
+    }
+
     /**
      * Display the specified resource.
      *
