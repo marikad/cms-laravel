@@ -34,8 +34,9 @@ class CommentRepliesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
+
 
     /**
      * Display the specified resource.
@@ -80,5 +81,10 @@ class CommentRepliesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+     public function createReply(Request $request)
+    {
+         return "it works";
     }
 }

@@ -64,7 +64,7 @@ class AdminPostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $comments = $post->comments()->whereIsActive($id)->get();
+        $comments = $post->comments()->whereIsActive(1)->orderBy('created_at', 'desc')->get();
 
         return view('post', compact('post', 'comments'));
     }
