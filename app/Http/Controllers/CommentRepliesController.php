@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\CommentReply;
+use App\Comment;
 
 class CommentRepliesController extends Controller
 {
@@ -48,7 +49,11 @@ class CommentRepliesController extends Controller
      */
     public function show($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+
+        $replies = $comment->replies;
+
+        return view('admin.comments.replies.show', compact('replies'));
     }
 
     /**
@@ -71,7 +76,9 @@ class CommentRepliesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        CommentReply::findOrFail($id)->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
@@ -82,7 +89,15 @@ class CommentRepliesController extends Controller
      */
     public function destroy($id)
     {
-        //
+          $comment = CommentReply::findOrFail($id);
+
+          $comment->delete();
+
+          return redirect()->back();
+
+    
+
+        return redirect()->back();
     }
 
      public function createReply(Request $request)

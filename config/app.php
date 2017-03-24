@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Sven\ArtisanView\ArtisanViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
         /*
          * Package Service Providers...

@@ -82,23 +82,33 @@
                         <p>{{$comment->body}}</p>
 
                         @if(count($comment->replies) > 0)
-                        {{-- @foreach($comment->replies as reply) --}}
-                        
+                        @foreach($comment->replies as $reply)
 
-                         {{-- <div class="media">
+                            @if($reply->is_active == 1)
+
+
+                         <div class="media">
                             <a class="pull-left" href="#">
                                 <img class="media-object" src="" alt="">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading">{{$reply->author}}
-                                    <small>{{$reply->created_at}}</small>
+                                    <small>{{$reply->created_at->diffForHumans()}}</small>
                                 </h4>
                              <p>{{$reply->body}}</p>
                             </div>
+                                   <div class="comment-reply-container">
+
+                        <button class="toggle-reply btn btn-primary pull-right">Reply</button>
+
+                        <div class="comment-reply col-sm-6">
+                            
+                        
+
                  {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
 
 
-                    <div class="form-group">
+                    <div class="form-group">       
                      <input type="hidden" name="comment_id" value="{{$comment->id}}">
                         
                         {!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>1]) !!}
@@ -108,8 +118,12 @@
                     </div>
 
                     {!! Form::close() !!}
-                        </div> --}}
-                        {{-- @endforeach --}}
+                    </div>
+                        </div>
+                        </div>
+                        @endif
+                        @endforeach 
+                       
                          @endif
 
                     </div>
@@ -124,5 +138,21 @@
 
     
                 @endif
+
+@stop
+
+@section('scripts')
+
+<script>
+    
+    $('.comment-reply-container .toggle-reply').click(function(){
+
+        $(this).next().slideToggle('slow')
+
+
+    })
+
+
+</script>
 
 @stop

@@ -19,7 +19,7 @@
 <div class="form-group">
 		{!! Form::submit('Delete Category', ['class'=>'btn btn-danger col-sm-6']) !!}
 </div>
-
+ 
 </div>
 
 {!! Form::close() !!}
