@@ -25,7 +25,7 @@
   @if($users)
   @foreach($users as $user)
     <td>{{$user->id}}</td>
-    <td><img height="50" src="{{$user->photo ? $user->photo->file : 'https://placehold.it/400x400'}}" alt=""></td>
+    <td><img height="50" src="{{Auth::user()->gravatar}}" alt=""></td>
     <td><a href="{{ route('users.edit', $user->id) }}">{{ucwords(trans($user->name))}}</a></td> 
     <td>{{$user->email}}</td>
     <td>{{$user->role['name']}}</td>

@@ -45,5 +45,13 @@
 </tbody>
 </table>
 
+<div class="row">
+	<div class="text-center">
+		
+		{{$posts->render()}}
+
+	</div>
+</div>
+
 
 @endsection

@@ -3,6 +3,8 @@
 
 @section('content')
 
+@include('includes.tinyeditor')
+
 
 
 

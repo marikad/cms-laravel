@@ -37,7 +37,10 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function() {
 	Route::resource('comments', 'PostCommentsController');
 	Route::resource('comment/replies', 'CommentRepliesController');
 		Route::post('comemnt/reply', 'CommentRepliesController@createReply');
+
 });
+
+Route::post('delete/media', 'AdminMediasController@deleteMedia');
 
 
 
