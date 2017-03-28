@@ -1,3 +1,6 @@
+
+
+
 @extends('layouts.admin')
 
 
@@ -33,17 +36,20 @@
   <tr>
 
   @foreach($photos as $photo)
-  <td> <input class="checkBoxes" type="checkbox" name="checkBoxArray[]" value="{{$photo->id}}" class="form-control"></td>
+  <td><input class="checkBoxes form-control" type="checkbox" name="checkBoxArray[]" value="{{$photo->id}}"></td>
     <td>{{$photo->id}}</td>
     <td><img height="50" src="{{$photo->file ? $photo->file : 'https://placehold.it/400x400'}}" alt=""></td>
     <td>{{$photo->created_at ? $photo->created_at->diffForHumans() : 'No Date'}}
     </td>
-
     <td>
-        <input type="hidden" name="photo" value="{{$photo->id}}">
+      
+     {!! Form::open(['method'=>'DELETE', 'action'=>['AdminMediasController@destroy', $photo->id]]) !!}
       <div class="form-group">
-    <input type="submit" name="delete_single" value="Delete" class="btn btn-danger">
-</div>
+     {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+ </div>
+ 
+    
+ {!! Form::close() !!}
     </td>
   </tr>
   @endforeach
@@ -83,3 +89,8 @@
 </script>
 
 @stop
+
+
+
+
+
