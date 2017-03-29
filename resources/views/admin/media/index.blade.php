@@ -16,7 +16,7 @@
 {{csrf_field()}}
 {{method_field('delete')}}
 <div class="form-group">
-  <select name="checkBoxArray" class="form-control">
+  <select name="checkBoxArray[]" class="form-control">
     <option value="">Delete</option>
   </select>
 </div>
@@ -42,8 +42,7 @@
     <td>{{$photo->created_at ? $photo->created_at->diffForHumans() : 'No Date'}}
     </td>
     <td>
-      
-     {!! Form::open(['method'=>'DELETE', 'action'=>['AdminMediasController@destroy', $photo->id]]) !!}
+       {!! Form::open(['method'=>'DELETE', 'action'=>['AdminMediasController@destroy', $photo->id]]) !!}
       <div class="form-group">
      {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
  </div>
@@ -52,9 +51,12 @@
  {!! Form::close() !!}
     </td>
   </tr>
+
   @endforeach
 </table>
 </form>
+   <td>
+      
 @endif
 
 
