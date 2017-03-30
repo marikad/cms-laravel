@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d8733d8e392d74552fe6bfe64d33c47",
+    "content-hash": "2dc5ed1fe11f94304e85f52164952c1e",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2316,6 +2316,52 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "appstract/laravel-tracer",
+            "version": "0.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/appstract/laravel-tracer.git",
+                "reference": "48735f1139f1534e2f164142a846a5f6ac4cce02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/appstract/laravel-tracer/zipball/48735f1139f1534e2f164142a846a5f6ac4cce02",
+                "reference": "48735f1139f1534e2f164142a846a5f6ac4cce02",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Appstract\\Tracer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bob Krijnen",
+                    "email": "hello@appstract.team",
+                    "homepage": "https://appstract.team",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds the paths of all loaded views/partials to your templates.",
+            "keywords": [
+                "appstract",
+                "blade",
+                "hints",
+                "laravel",
+                "path",
+                "php"
+            ],
+            "time": "2017-03-09T22:18:37+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
